@@ -1,0 +1,101 @@
+/* --------------  Global -------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: url("../static/LoopingFlower.gif") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes bgMove {
+    0%   {background-position: 0%   50%;}
+    50%  {background-position: 100% 50%;}
+    100% {background-position: 0%   50%;}
+}
+
+/* --------------  Card -------------- */
+.card {
+    background: rgba(255, 240, 245, 0.96);
+    padding: 48px 56px;
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    width: 420px;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.9s ease;
+}
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-14px);}
+    to   {opacity: 1; transform: translateY(0);}
+}
+
+/* --------------  Heading -------------- */
+h1 {
+    margin: 0 0 32px 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;           /* bold black */
+}
+
+/* --------------  Form elements -------------- */
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 600;
+    color: #c2185b;
+    text-align: left;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border: 1px solid #ec407a;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fffdfd;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus {
+    border-color: #d81b60;
+    outline: none;
+    background: #fff1f7;
+}
+input[type="submit"] {
+    margin-top: 28px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #ff4b7d, #ff2d6f);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(255, 59, 118, 0.35);
+    transition: transform 0.15s;
+}
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+}
+
+/* --------------  Prediction / Error -------------- */
+.prediction {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;           /* black inside the card */
+}
+.error {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #c62828;
+}
+.gif-banner {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
