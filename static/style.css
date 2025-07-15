@@ -25,6 +25,8 @@ body {
     width: 420px;
     backdrop-filter: blur(6px);
     animation: fadeIn 0.9s ease;
+    position: relative;              /* lets us absolutely‑position flowers */
+    width: 460px;  
 }
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(-14px);}
@@ -99,3 +101,22 @@ input[type="submit"]:hover {
     border-radius: 10px;
     margin-bottom: 20px;
 }
+/* ---------- Flower images ---------- */
+.flower-img {
+    position: absolute;
+    top: -30px;                      /* sit slightly above card */
+    width: 110px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+    animation: popIn 0.5s ease;
+}
+
+.left-img  { left: -55px;  transform: rotate(-8deg); }
+.right-img { right: -55px; transform: rotate( 8deg); }
+
+/* subtle entrance */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8) translateY(-20px); }
+    to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
