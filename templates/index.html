@@ -11,16 +11,15 @@
 <!-- form‑box start -->
 <div class="card">
     {# --- choose the correct image based on prediction --- #}
-    {% if result_prediction %}
-        {% if   result_prediction == 'setosa'      %}
-            {% set flower_img = 'setosa.png' %}
-        {% elif result_prediction == 'versicolor'  %}
-            {% set flower_img = 'versicolor.png' %}
-        {% elif result_prediction == 'virginica'   %}
-            {% set flower_img = 'virginica.png' %}
-        {% endif %}
-    {% endif %}
-
+    {% set img_map = {
+    'iris-setosa':      'setosa.png',
+    'iris-versicolor':  'versicolor.png',
+    'iris-virginica':   'virginica.png',
+    'setosa':           'setosa.png',
+    'versicolor':       'versicolor.png',
+    'virginica':        'virginica.png'
+} %}
+{% set flower_img = img_map.get(result_prediction|lower) %}
     {# --- decorative flower images, shown only if we have one --- #}
     {% if flower_img %}
         <img src="{{ url_for('static', filename=flower_img) }}"
