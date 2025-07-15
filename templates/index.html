@@ -10,6 +10,24 @@
 
 <!-- form‑box start -->
 <div class="card">
+    {# --- choose the correct image based on prediction --- #}
+    {% if result_prediction %}
+        {% if   result_prediction == 'setosa'      %}
+            {% set flower_img = 'setosa.png' %}
+        {% elif result_prediction == 'versicolor'  %}
+            {% set flower_img = 'versicolor.png' %}
+        {% elif result_prediction == 'virginica'   %}
+            {% set flower_img = 'virginica.png' %}
+        {% endif %}
+    {% endif %}
+
+    {# --- decorative flower images, shown only if we have one --- #}
+    {% if flower_img %}
+        <img src="{{ url_for('static', filename=flower_img) }}"
+             class="flower-img left-img"  alt="{{ result_prediction }}">
+        <img src="{{ url_for('static', filename=flower_img) }}"
+             class="flower-img right-img" alt="{{ result_prediction }}">
+    {% endif %}
     <img src="{{ url_for('static', filename='LoopingFlower.gif') }}" alt="Floral animation" class="gif-banner">
     <h1>Predict Iris Species</h1>
 
